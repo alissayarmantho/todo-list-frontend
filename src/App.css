@@ -1,27 +1,96 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
+  height: 100%;
+  position: 'absolute';
+  display: flex;
+  flex-direction: row;
+}
+.Banner {
+  background-image:url(https://i.pinimg.com/originals/3c/a9/c5/3ca9c5aefa9f6d49e408f66f1ab04a65.jpg);
+  padding: 4rem 0rem 0rem 0rem;
+  opacity: 0.2;
+  color: transparent;
+}
+.Todo_Content{
+  width: 90%;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+.Title{
+  font-size: xx-large;
+  font-weight: bold;
+}
+.Categories_Card{
+  font-size: 25px;
+  margin:1.5rem 1rem 0rem 1rem;
+}
+.Categories_Card:hover{
+  font-weight: bold;
+}
+
+.Todo_Card {
+  padding: 0 0 1rem;
+  margin:1.5rem 1rem 0rem 1rem;
+  font-size: 25px;
+  border-bottom: 1px solid #d3d6db;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.UpdateandDelete{
+  width: 10%;
+  float: right;
+  padding: 0rem 1rem 0rem 1.5rem;
+  vertical-align: middle;
+}
+
+.Add_TodoCard {
+  padding: 0 0 1rem;
+  margin:1.5rem 1rem 0rem 1rem;
+  font-size: 25px;
+  width: 90%;
+}
+
+.Todo {
+  padding: 3rem;
+  height: 100vh;
+  margin-right: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 70%;
+  word-wrap: break-word;
+}
+.TextfieldContainer{
+  margin:1.5rem 0rem 0rem 1rem;
+  font-size: 25px; 
+  display: flex;
+  flex-direction: row;
+}
+
+.AddButton{
+  text-align: left;
+  padding: 2rem 1rem 1rem 1.5rem;
+  margin:1.5rem 1rem qrem 1rem;
+  width:30%;
+  vertical-align: middle;
+}
+
+.Categories{
+  padding: 3rem;
+  height: 100vh;
+  background-color: #fafafa;
+  margin-right: 1rem;
+  border-right: 1px solid #d3d6db;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
 }
 
 .App-link {
