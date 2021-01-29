@@ -10,12 +10,29 @@
   display: flex;
   flex-direction: row;
 }
+
+@media only screen and (max-width: 576px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .Categories {
+    height: fit-content !important;
+    border-right: transparent !important;
+  }
+
+  .Todo {
+    height: fit-content !important;
+  }
+}
+
 .Banner {
   background-image: url(https://i.pinimg.com/originals/3c/a9/c5/3ca9c5aefa9f6d49e408f66f1ab04a65.jpg);
   padding: 4rem 0rem 0rem 0rem;
   opacity: 0.2;
   color: transparent;
 }
+
 .Todo_Content {
   width: 90%;
   word-wrap: break-word;
@@ -115,7 +132,7 @@
 }
 
 .UpdateandDelete {
-  width: 10%;
+  /* max-width: 10%; */
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -134,11 +151,11 @@
 .Todo {
   padding: 3rem;
   height: 100vh;
-  margin-right: 1rem;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  /* width: 70%; */
   word-wrap: break-word;
+  flex-grow: 0.95;
 }
 .TextfieldContainer {
   margin: 1.5rem 0rem 0rem 0.5rem;
@@ -159,11 +176,13 @@
   padding: 3rem;
   height: 100vh;
   background-color: #fafafa;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   border-right: 1px solid #d3d6db;
   display: flex;
   flex-direction: column;
-  width: 25%;
+  /* width: 25%; */
+  flex-grow: 0.05;
+  max-width: 100%;
 }
 
 .hidden_UpdateandDelete {

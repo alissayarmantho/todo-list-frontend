@@ -20,13 +20,14 @@ function App() {
   const [isUpdatingCategory, setUpdatingCategory] = useState<boolean>(false);
   const [updatedCategory, setUpdatedCategory] = useState<string>("");
   //To filter by Category
-  const [isGettingfilteredTodos, setGettingFilteredTodos] = useState<boolean>(
-    false
-  );
-  const [currentCategoryId, setcurrentCategoryId] = useState<number>();
+
+  const [currentCategoryId, setCurrentCategoryId] = useState<number>();
 
   //Todo-related states
   const [todos, setTodos] = useState<Array<Todo>>([]);
+  const [filterTodoPredicate, setFilterTodoPredicate] = useState(
+    () => filterReturnAllTodo
+  );
   //Create Todo states
   const [newTodo, setNewTodo] = useState<string>("");
   const [isCreatingTodo, setCreatingTodo] = useState<boolean>(false);
@@ -54,26 +55,12 @@ function App() {
       });
   }, []);
 
-  async function getAllTodos() {
-    try {
-      const todos = await API.todos.get();
-      setTodos(todos);
-    } catch (err) {
-      console.log(err);
-    }
+  function filterReturnAllTodo(todo: Todo) {
+    return true;
   }
 
-  async function filterTodos(category_id: number | undefined) {
-    try {
-      setGettingFilteredTodos(true);
-      const filteredTodos = await API.todos.filterTodobyCategoryId(category_id);
-      setTodos(filteredTodos);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setGettingFilteredTodos(false);
-    }
-  }
+  const filterTodoByCategoryId = (categoryId: number) => (t: Todo) =>
+    t.category_id === categoryId;
 
   async function createTodos(category_id: number, content: string) {
     const newTodo = {
@@ -85,8 +72,8 @@ function App() {
       setCreatingTodo(true);
       await API.todos.create(newTodo);
       console.log("Successfully created");
-      const updated_todos = await API.todos.filterTodobyCategoryId(category_id);
-      setTodos(updated_todos);
+      const updatedTodos = await API.todos.get();
+      setTodos(updatedTodos);
     } catch (err) {
       console.log(err);
     } finally {
@@ -109,10 +96,8 @@ function App() {
       setUpdatingTodo(true);
       await API.todos.update(UpdatedTodo, todoId);
       console.log("Successfully updated");
-      const updated_todos = await API.todos.filterTodobyCategoryId(
-        currentCategoryId
-      );
-      setTodos(updated_todos);
+      const updatedTodos = await API.todos.get();
+      setTodos(updatedTodos);
     } catch (err) {
       console.log(err);
     } finally {
@@ -126,11 +111,8 @@ function App() {
     try {
       setTodos(todos.filter((c) => c.id !== todoId));
       await API.todos.destroy(todoId);
-      console.log("Successfully deleted");
-      const updated_todos = await API.todos.filterTodobyCategoryId(
-        currentCategoryId
-      );
-      setTodos(updated_todos);
+      const updatedTodos = await API.todos.get();
+      setTodos(updatedTodos);
     } catch (err) {
       console.log(err);
     }
@@ -181,12 +163,10 @@ function App() {
       setTodos(todos.filter((c) => c.category_id !== categoryId));
       await API.categories.destroy(categoryId);
       console.log("Successfully deleted");
-      const updated_categories = await API.categories.get();
-      const updated_todos = await API.todos.filterTodobyCategoryId(
-        currentCategoryId
-      );
-      setCategories(updated_categories);
-      setTodos(updated_todos);
+      const updatedCategories = await API.categories.get();
+      setCategories(updatedCategories);
+      const updatedTodos = await API.todos.get();
+      setTodos(updatedTodos);
     } catch (err) {
       console.log(err);
     }
@@ -201,10 +181,9 @@ function App() {
             <button
               className="Categories_Card"
               onClick={() => {
-                setcurrentCategoryId(undefined);
-                getAllTodos();
+                setCurrentCategoryId(undefined);
+                setFilterTodoPredicate(() => filterReturnAllTodo);
               }}
-              disabled={isGettingfilteredTodos}
             >
               All
             </button>
@@ -229,10 +208,11 @@ function App() {
                 <button
                   className="Categories_Card"
                   onClick={() => {
-                    setcurrentCategoryId(category.id);
-                    filterTodos(category.id);
+                    setCurrentCategoryId(category.id);
+                    setFilterTodoPredicate(() =>
+                      filterTodoByCategoryId(category.id)
+                    );
                   }}
-                  disabled={isGettingfilteredTodos}
                 >
                   {category.name}
                 </button>
@@ -286,7 +266,7 @@ function App() {
         </div>
         <div className="Todo">
           <p className="Title">Todo List</p>
-          {todos.map((todo) => (
+          {todos.filter(filterTodoPredicate).map((todo) => (
             <div className="Todo_Card" key={todo.id}>
               {editTodo === todo.id.toString() ? (
                 <input
