@@ -230,7 +230,7 @@ function App() {
                   className="Categories_Card"
                   onClick={() => {
                     setcurrentCategoryId(category.id);
-                    filterTodos(currentCategoryId);
+                    filterTodos(category.id);
                   }}
                   disabled={isGettingfilteredTodos}
                 >
