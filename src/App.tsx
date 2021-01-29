@@ -178,10 +178,15 @@ function App() {
   async function deleteCategory(categoryId: number) {
     try {
       setCategories(categories.filter((c) => c.id !== categoryId));
+      setTodos(todos.filter((c) => c.category_id !== categoryId));
       await API.categories.destroy(categoryId);
       console.log("Successfully deleted");
       const updated_categories = await API.categories.get();
+      const updated_todos = await API.todos.filterTodobyCategoryId(
+        currentCategoryId
+      );
       setCategories(updated_categories);
+      setTodos(updated_todos);
     } catch (err) {
       console.log(err);
     }
