@@ -48,8 +48,8 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  margin: 1.5rem 0rem 0rem 0rem;
 }
+
 .Textfield_Style {
   outline-style: none;
   font-size: 25px;
@@ -69,9 +69,7 @@
 
 .Textfield_Style_ForTodo {
   outline-style: none;
-  margin-left: 0.5rem;
   margin-top: 1rem;
-  padding-left: 0.2rem;
   font-size: 22px;
   font-family: "Source Sans Pro";
   border-style: hidden;
@@ -123,7 +121,7 @@
 
 .Todo_Card {
   padding: 0 0 1rem;
-  margin: 1.5rem 1rem 0rem 1rem;
+  margin-top: 1.5rem;
   font-size: 25px;
   border-bottom: 1px solid #d3d6db;
   width: 100%;
@@ -132,12 +130,10 @@
 }
 
 .UpdateandDelete {
-  /* max-width: 10%; */
   height: fit-content;
   display: flex;
   flex-direction: row;
   float: right;
-  padding: 0rem 1rem 0rem 1.5rem;
   vertical-align: middle;
 }
 
@@ -153,12 +149,11 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* width: 70%; */
   word-wrap: break-word;
   flex-grow: 0.95;
 }
 .TextfieldContainer {
-  margin: 1.5rem 0rem 0rem 0.5rem;
+  margin-top: 1.5rem;
   font-size: 25px;
   display: flex;
   flex-direction: row;
@@ -176,11 +171,9 @@
   padding: 3rem;
   height: 100vh;
   background-color: #fafafa;
-  /* margin-right: 1rem; */
   border-right: 1px solid #d3d6db;
   display: flex;
   flex-direction: column;
-  /* width: 25%; */
   flex-grow: 0.05;
   max-width: 100%;
 }
@@ -191,7 +184,6 @@
   height: fit-content;
   flex-direction: row;
   float: right;
-  padding: 0rem 1rem 0rem 1.5rem;
   vertical-align: middle;
   visibility: hidden;
 }

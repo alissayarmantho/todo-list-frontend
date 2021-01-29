@@ -185,7 +185,7 @@ function App() {
                 setFilterTodoPredicate(() => filterReturnAllTodo);
               }}
             >
-              All
+              {currentCategoryId ? "All" : <strong>All</strong>}
             </button>
             <div className="hidden_UpdateandDelete">
               <IconButton aria-label="Add" disabled={true}>
@@ -214,7 +214,11 @@ function App() {
                     );
                   }}
                 >
-                  {category.name}
+                  {currentCategoryId === category.id ? (
+                    <strong>{category.name}</strong>
+                  ) : (
+                    category.name
+                  )}
                 </button>
               )}
               <div className="UpdateandDelete">
