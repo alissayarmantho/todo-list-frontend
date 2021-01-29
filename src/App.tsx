@@ -354,7 +354,7 @@ function App() {
               <textarea
                 className="Textfield_Style_ForTodo"
                 value={newTodo}
-                placeholder="Please select a category from the list on the left or create a new category. Then, select a category to begin adding a new Todo."
+                placeholder="Please select a category from the list on the left or create a new category and select it to begin adding a new Todo."
                 disabled={true}
               ></textarea>
               <IconButton aria-label="Add" disabled={true}>
