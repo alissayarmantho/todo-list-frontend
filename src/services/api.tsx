@@ -1,9 +1,9 @@
-import initCategories from './categories'
-import initPosts from './todos'
-import config from '../config'
+import initCategories from "./categories";
+import initTodos from "./todos";
+import config from "../config";
 
 const api = {
-    categories: initCategories(config.Todos_apiURL),
-    posts: initPosts(config.Categories_apiURL)
-}
+  todos: initTodos(config.Todos_apiURL),
+  categories: initCategories(config.Categories_apiURL),
+};
 export default api;

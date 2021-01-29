@@ -6,37 +6,107 @@
 
 .App {
   height: 100%;
-  position: 'absolute';
+  position: "absolute";
   display: flex;
   flex-direction: row;
 }
 .Banner {
-  background-image:url(https://i.pinimg.com/originals/3c/a9/c5/3ca9c5aefa9f6d49e408f66f1ab04a65.jpg);
+  background-image: url(https://i.pinimg.com/originals/3c/a9/c5/3ca9c5aefa9f6d49e408f66f1ab04a65.jpg);
   padding: 4rem 0rem 0rem 0rem;
   opacity: 0.2;
   color: transparent;
 }
-.Todo_Content{
+.Todo_Content {
   width: 90%;
   word-wrap: break-word;
   overflow: auto;
 }
 
-.Title{
+.Title {
   font-size: xx-large;
   font-weight: bold;
 }
-.Categories_Card{
-  font-size: 25px;
-  margin:1.5rem 1rem 0rem 1rem;
+
+.Categories_CardContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin: 1.5rem 0rem 0rem 0rem;
 }
-.Categories_Card:hover{
+.Textfield_Style {
+  outline-style: none;
+  font-size: 25px;
+  border-style: hidden;
+  border-bottom: 2px solid #d3d6db;
+  overflow: auto;
+  height: fit-content;
+  background-color: inherit;
+  width: 90%;
+}
+.Textfield_Style:hover {
+  border-bottom: 2px solid black;
+}
+.Textfield_Style:focus {
+  border-bottom: 2px solid #00008b;
+}
+
+.Textfield_Style_ForTodo {
+  outline-style: none;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  padding-left: 0.2rem;
+  font-size: 22px;
+  font-family: "Source Sans Pro";
+  border-style: hidden;
+  border-bottom: 2px solid #d3d6db;
+  overflow: auto;
+  background-color: inherit;
+  width: 90%;
+}
+.Textfield_Style_ForTodo:hover {
+  border-bottom: 2px solid black;
+}
+.Textfield_Style_ForTodo:focus {
+  border-bottom: 2px solid #00008b;
+}
+
+.Textfield_Style_ForEditingTodo {
+  outline-style: none;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  padding-left: 0.2rem;
+  font-size: 25px;
+  font-family: "Source Sans Pro";
+  border-style: hidden;
+  border-bottom: 2px solid #d3d6db;
+  overflow: auto;
+  background-color: inherit;
+  width: 90%;
+}
+.Textfield_Style_ForEditingTodo:hover {
+  border-bottom: 2px solid black;
+}
+.Textfield_Style_ForEditingTodo:focus {
+  border-bottom: 2px solid #00008b;
+}
+
+.Categories_Card {
+  font-size: 25px;
+  width: 85%;
+  word-wrap: break-word;
+  border: transparent;
+  overflow: auto;
+  text-align: left;
+  background-color: #fafafa;
+}
+.Categories_Card:hover {
   font-weight: bold;
+  background-color: white;
 }
 
 .Todo_Card {
   padding: 0 0 1rem;
-  margin:1.5rem 1rem 0rem 1rem;
+  margin: 1.5rem 1rem 0rem 1rem;
   font-size: 25px;
   border-bottom: 1px solid #d3d6db;
   width: 100%;
@@ -44,8 +114,11 @@
   flex-direction: row;
 }
 
-.UpdateandDelete{
+.UpdateandDelete {
   width: 10%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
   float: right;
   padding: 0rem 1rem 0rem 1.5rem;
   vertical-align: middle;
@@ -53,7 +126,7 @@
 
 .Add_TodoCard {
   padding: 0 0 1rem;
-  margin:1.5rem 1rem 0rem 1rem;
+  margin: 1.5rem 1rem 0rem 1rem;
   font-size: 25px;
   width: 90%;
 }
@@ -67,22 +140,22 @@
   width: 70%;
   word-wrap: break-word;
 }
-.TextfieldContainer{
-  margin:1.5rem 0rem 0rem 1rem;
-  font-size: 25px; 
+.TextfieldContainer {
+  margin: 1.5rem 0rem 0rem 0.5rem;
+  font-size: 25px;
   display: flex;
   flex-direction: row;
 }
 
-.AddButton{
+.AddButton {
   text-align: left;
   padding: 2rem 1rem 1rem 1.5rem;
-  margin:1.5rem 1rem qrem 1rem;
-  width:30%;
+  margin: 1.5rem 1rem qrem 1rem;
+  width: 30%;
   vertical-align: middle;
 }
 
-.Categories{
+.Categories {
   padding: 3rem;
   height: 100vh;
   background-color: #fafafa;
@@ -91,6 +164,17 @@
   display: flex;
   flex-direction: column;
   width: 25%;
+}
+
+.hidden_UpdateandDelete {
+  width: 10%;
+  display: flex;
+  height: fit-content;
+  flex-direction: row;
+  float: right;
+  padding: 0rem 1rem 0rem 1.5rem;
+  vertical-align: middle;
+  visibility: hidden;
 }
 
 .App-link {
