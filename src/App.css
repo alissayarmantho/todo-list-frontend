@@ -19,6 +19,7 @@
   .Categories {
     height: fit-content !important;
     border-right: transparent !important;
+    border-bottom: 1px solid #d3d6db;
   }
 
   .Todo {
