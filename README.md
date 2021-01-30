@@ -12,6 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * Write-up file for final-assignment submission : [CVWO-finalWriteUp.pdf](https://github.com/alissayarmantho/todo-list-backend/blob/master/CVWO-finalWriteUp.pdf)
 
-**References**
+**References:**
 [Dockerfile for Rails](https://github.com/jahangiranwari/rails5-docker-heroku/blob/master/Dockerfile)
 
