@@ -5,8 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Alissa / A0223305W
 
 * Back-end git repository link: [Back-end git repository](https://github.com/alissayarmantho/todo-list-backend)
-* Heroku link : [alissa-todolist-backend] (https://alissayarmantho-todo-backend.herokuapp.com/)
-* Netlify link (for frontend) : [alissa-todolist] (https://alissamanthou.netlify.app/)
+* Heroku link : [alissa-todolist-backend](https://alissayarmantho-todo-backend.herokuapp.com/)
+* Netlify link (for frontend) : [alissa-todolist](https://alissamanthou.netlify.app/)
   
 **Final assignment submission:**
 
